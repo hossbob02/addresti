@@ -1,0 +1,92 @@
+<header id="header" class="header" style="height: 1700px;">
+    <div class="header-content">
+        <div class="container">
+            <h4>Feedback</h4>
+            <table class="table" style="color: white;">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Information</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Feedback</td>
+                        <td>{{newdataFeedback.rating}}</td>
+                      </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>{{emailFeed}}</td>
+                      </tr>
+                  <tr>
+                    <td>Username</td>
+                    <td>{{usernameFeed}}</td>
+                  </tr>
+                  
+                  
+                 
+                  
+                </tbody>
+              </table>
+
+
+
+
+              <h4>Details For Tracking Vendor User</h4>
+            <!--this is table user vendor-->            
+            <table class="table" style="color: white;">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Information</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Address</td>
+                    <td>{{dataDetails.address}}</td>
+                  </tr>
+                  <tr>
+                    <td>Accuracy</td>
+                    <td>{{dataDetails.location.accuracy}}</td>
+                  </tr>
+                  <tr>
+                    <td>altitude</td>
+                    <td>{{dataDetails.location.altitude}}</td>
+                  </tr>
+                  <tr>
+                    <td>bearing</td>
+                    <td>{{dataDetails.location.bearing}}</td>
+                  </tr>
+                  <tr>
+                    <td>latitude</td>
+                    <td>{{dataDetails.location.latitude}}</td>
+                  </tr>
+                  <tr>
+                    <td>longitude</td>
+                    <td>{{dataDetails.location.longitude}}</td>
+                  </tr>
+                  <tr>
+                    <td>provider</td>
+                    <td>{{dataDetails.location.provider}}</td>
+                  </tr>
+                  <tr>
+                    <td>speed</td>
+                    <td>{{dataDetails.location.speed}}</td>
+                  </tr>
+                  <tr>
+                    <td>temperarlyLocation</td>
+                    <td>{{dataDetails.temperarlyLocation}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <agm-map [latitude]="dataDetails.location.latitude" [longitude]="dataDetails.location.longitude">
+                <agm-marker [latitude]="dataDetails.location.latitude" [longitude]="dataDetails.location.longitude"></agm-marker>
+              </agm-map>
+            </div> 
+    </div>
+  </header> 
+  
+  
+  
+  

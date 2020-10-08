@@ -1,0 +1,169 @@
+<header id="header" class="header">
+    <div class="header-content">
+        <div class="container">
+         <div>
+          <p style="text-align: center;">
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              YOUR SECRET KEY
+            </button>
+          </p>
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body" style="background: #7778e2;">
+              <h4 style="text-align: center; color: #585858;">{{uid}}</h4>
+            </div>
+          </div>  
+         </div>
+          <div class="row">
+                <div class="col-lg-6">
+                    <div class="card mb-3" style="max-width: 500px; background: #5656d0;">
+                        <div class="row no-gutters">
+                          <div class="col-md-8">
+                            <div class="card-body">
+                                <table class="table table-borderless">
+                                    <thead>
+                                      <tr style="color: white;">
+                                        <th scope="col">#</th>
+                                        <th scope="col">Data</th>
+                                        <th scope="col">Actions</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody style="color: white;">
+                                      <tr>
+                                        <th scope="row">Name</th>
+                                        <th>{{data.name | titlecase}}</th>
+                                        <td><button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >Update</button></td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">Password</th>
+                                        <th>**************</th>
+                                        <td><button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2" >Update</button></td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">Email</th>
+                                        <th>{{data.email}}</th>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">Company</th>
+                                        <th>{{data.company | titlecase }}</th>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">vendorMaxNumber</th>
+                                        <th>{{data.vendorMaxNumber}}</th>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">subscription</th>
+                                        <th>{{data.subscription}}</th>
+                                      </tr>
+                                     
+                                    </tbody>
+                                  </table>
+                                  
+                           
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card mb-3" style="max-width: 500px; background: #5656d0;">
+                        <div class="row no-gutters">
+                          <div class="col-md-8">
+                            <div class="card-body" >
+                              
+                              <img [src]="data.photo" class="rounded mx-auto d-block" style=" border-radius: 10px;width: 300px;height: 300px;" />
+                            
+                              <button class="btn btn-primary" style="margin-left: 50%; margin-right:50% ; width: 150px; margin-top: 5px;" data-toggle="modal" data-target="#exampleModalupdatephoto" >UPDATE IMAGE</button>
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div> <!-- end of col -->
+                 <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of header-content -->
+</header> 
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" style="color: #372a96;">Update Your Name</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #f="ngForm" (ngSubmit)="updateName(f)">
+        <input  ngModel name="name" type="text" #name="ngModel" class="form-control" id="formGroupNameInput" placeholder="Enter New Name" required>
+        <div class="alert alert-danger" *ngIf="name.invalid && name.touched">Name is required</div>
+        <div class="alert alert-success" role="alert" *ngIf="messageUpdateName">{{messageUpdateName}}</div>
+        
+        <br>
+        <button class="btn btn-success" [disabled]="f.invalid" style="width: 100%;">Update Name</button>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Update Password--> 
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" style="color: #372a96;">Update Your Password</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #fo="ngForm" (ngSubmit)="updatepassword(fo)">
+          <div class="form-group">
+            <input ngModel type="password"  #oldpassword="ngModel" name="oldpassword" class="form-control" id="formGroupPasswordInput" placeholder="Old Password" required minlength="8">
+            <div class="alert alert-danger" *ngIf="oldpassword.touched && oldpassword.errors?.required">Password Is Required</div>
+            <div class="alert alert-danger" *ngIf="oldpassword.touched && oldpassword.errors?.minlength">Your password should be 8+ carateres</div>
+        </div>
+          <div class="form-group">
+            <input ngModel type="password"  #password="ngModel" name="password" class="form-control" id="formGroupPasswordInput" placeholder="New Password" required minlength="8">
+            <div class="alert alert-danger" *ngIf="password.touched && password.errors?.required">Password Is Required</div>
+            <div class="alert alert-danger" *ngIf="password.touched && password.errors?.minlength">Your password should be 8+ carateres</div>
+        </div>
+        <div class="alert alert-success" role="alert" *ngIf="messageUpdatePassword">{{messageUpdatePassword}}</div>
+        <div class="alert alert-danger" role="alert" *ngIf="messageUpdateEchecPassword">{{messageUpdateEchecPassword}}</div>
+        <button class="btn btn-success" [disabled]="fo.invalid" style="width: 100%;">Update Password</button>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="exampleModalupdatephoto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="exampleFormControlFile1" style="color: deepskyblue;">Upload Image</label>
+            <input type="file" class="form-control-file" id="exampleFormControlFile1" (change)="upload($event)" accept=".png,.jpg">
+            <p style="color: red">We Accept Just (*.jpg) And (*.png) Formats</p>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

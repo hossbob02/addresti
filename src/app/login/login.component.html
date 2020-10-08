@@ -1,0 +1,43 @@
+<header id="header" class="header">
+    <div class="header-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="text-container">
+                        <h1>login MOBILE APP <br>FOR <span id="js-rotating">DESIGNERS, MARKETERS, DEVELOPERS</span></h1>
+                        <p class="p-large">Leno is one of the easiest and feature packed marketing automation apps in the market. Download it today!</p>
+                        <a class="btn-solid-lg page-scroll" href="#your-link"><i class="fab fa-apple"></i>APP STORE</a>
+                        <a class="btn-solid-lg page-scroll" href="#your-link"><i class="fab fa-google-play"></i>PLAY STORE</a>
+                    </div>
+                </div> <!-- end of col -->
+                <div class="col-lg-6">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="image-container">
+                        <form #f="ngForm" (ngSubmit)="login(f)" >
+                            <div class="form-group">
+                              <input ngModel type="email"  name="email" #email="ngModel" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" required email>
+                              <div class="alert alert-danger" *ngIf="email.touched && email.errors?.required">Email is required</div>
+                              <div class="alert alert-danger" *ngIf="email.touched && email.errors?.email">Your Email doesn't match email format</div>
+                            </div>
+                            <div class="form-group">
+                                <input ngModel type="password"  #password="ngModel" name="password" class="form-control" id="formGroupPasswordInput" placeholder="Password" required minlength="8">
+                                <div class="alert alert-danger" *ngIf="password.touched && password.errors?.required">password is required</div>
+                                <div class="alert alert-danger" *ngIf="password.touched && password.errors?.minlength">Your password should be 8+ carateres</div>
+                            </div>
+                            <div class="alert alert-danger" *ngIf="errlogin">{{errlogin}}</div>
+                            <h5 style="color:darkgreen; text-align: center;">Click Double Click Login With Mouse Not Keyboard</h5>
+                            <button class="btn btn-success" [disabled]="f.invalid" style="width: 100%; background-color: #00c9db;">Login</button>
+                            <button class="btn" type="button" (click)="resetpass()" style="width: 100%; background: #4633af;
+                            color: white;">Reset Password</button>
+
+                          </form>
+                    </div> <!-- end of image-container -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of header-content -->
+</header> 

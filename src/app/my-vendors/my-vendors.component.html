@@ -1,0 +1,26 @@
+<header id="header" class="header" style="height: 100%;">
+  <div class="header-content">
+      <div class="container">
+        <table class="table" style="color: white;">
+          <thead>
+            <tr>
+              <th scope="col">EMAIL</th>
+              <th scope="col">USERNAME</th>
+              <th scope="col">ACTIONS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of dataUser">
+              <td>{{item.email}}</td>
+              <td>{{item.username}}</td>
+              <td><button type="button" class="btn btn-success" (click)="details(item.locationCode,item.creatorId)" >DETAILS</button>&nbsp;
+                <button type="button" class="btn btn-danger" (click)="delete(item.creatorId)">DELETE</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div> 
+  </div>
+</header> 
+
+
+

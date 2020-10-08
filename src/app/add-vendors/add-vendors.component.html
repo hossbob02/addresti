@@ -1,0 +1,19 @@
+<header id="header" class="header" style="height: 100%;">
+  <div class="header-content">
+      <div class="container">
+        <form>
+        <input *ngIf="vendorMaxNumber>0" type="text" class="form-control" name="email" [(ngModel)]="email" id="inlineFormInputGroupUsername2" placeholder="Email">
+        <button *ngIf="vendorMaxNumber>0" class="btn btn-primary" (click)="giveme()">Add Vendros</button><br><br>
+        <div class="alert alert-danger" *ngIf="messagenotfound">{{messagenotfound}}</div>
+        <div *ngIf="vendorMaxNumber===0">You don't Add Vendors because Maximum Number To add is {{vendorMaxNumber}}</div>
+        <button type="button" class="btn btn-primary">
+          Number Max Add<span class="badge badge-light">{{vendorMaxNumber}}</span>
+          <span class="sr-only">unread messages</span>
+        </button>
+        <div class="alert alert-success" *ngIf="messageValidAdd">{{messageValidAdd}}</div>
+        </form>
+          <div class="row">  
+          </div> 
+      </div> 
+  </div> 
+</header> 

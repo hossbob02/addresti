@@ -1,0 +1,48 @@
+<header id="header" class="header" style="height: 1000px;">
+    <div class="header-content">
+        <div class="container">
+       
+
+        <form #f="ngForm" (ngSubmit)="signup(f)" >
+          <div class="form-group">
+              <input  ngModel name="name" type="text" #name="ngModel" class="form-control" id="formGroupNameInput" placeholder="Name" required>
+              <div class="alert alert-danger" *ngIf="name.invalid && name.touched">Name is required</div>
+          </div>
+          <div class="form-group">
+              <input  ngModel name="company" type="text" #company="ngModel" class="form-control" id="formGroupNameInput" placeholder="Company" required>
+              <div class="alert alert-danger" *ngIf="company.invalid && company.touched">Company is required</div>
+          </div>
+          <div class="form-group">
+              <input  ngModel name="adresse" type="text" #adresse="ngModel" class="form-control" id="formGroupNameInput" placeholder="Adresse" required>
+              <div class="alert alert-danger" *ngIf="adresse.invalid && adresse.touched">Adresse is required</div>
+          </div>
+          <div class="form-group">
+            <input ngModel type="email"  name="email" #email="ngModel" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" required email>
+            <div class="alert alert-danger" *ngIf="email.touched && email.errors?.required">Email is required</div>
+            <div class="alert alert-danger" *ngIf="email.touched && email.errors?.email">Your Email doesn't match email format</div>
+          </div>
+          <div class="form-group">
+              <input ngModel type="password"  #password="ngModel" name="password" class="form-control" id="formGroupPasswordInput" placeholder="Password" required minlength="8">
+              <div class="alert alert-danger" *ngIf="password.touched && password.errors?.required">password is required</div>
+              <div class="alert alert-danger" *ngIf="password.touched && password.errors?.minlength">Your password should be 8+ carateres</div>
+        
+          </div>
+            <div class="form-group">
+              <input ngModel type="password"  #confirmpassword="ngModel" name="confirmpassword" class="form-control" id="formGroupConfirmPasswordInput" placeholder="Confirm Password" required>
+              <div class="alert alert-danger" *ngIf="confirmpassword.invalid && confirmpassword.touched">Confirm password is required</div>
+              <div class="alert alert-danger" *ngIf="password.value !== confirmpassword.value && confirmpassword.touched">Passwords are not equal</div>
+          </div>  
+          <div class="form-group">
+            <input ngModel type="text" class="form-control" #mobile="ngModel" name="mobile" id="formGroupmobileInput" placeholder="Your mobile number should be 8+ carateres" required minlength="8" maxlength="8">
+            <div class="alert alert-danger" *ngIf="mobile.touched && mobile.errors?.required">mobile number is required</div>
+            <div class="alert alert-danger" *ngIf="mobile.touched && mobile.errors?.minlength || mobile.errors?.maxlength">Your mobile number should be 8+ carateres</div>
+        </div>  
+        
+         
+          <button class="btn btn-success" [disabled]="f.invalid || password.value !== confirmpassword.value" style="width: 100%; background-color: #00c9db;">REGISTER</button>
+        </form>
+
+        </div> 
+    </div> 
+</header> 
+

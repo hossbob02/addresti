@@ -1,0 +1,27 @@
+.row{
+
+    padding: 20px;
+
+}
+.img_taille{
+    border-radius: 30px;
+    width: 200px;
+    height: 200px;
+}
+.espace{
+    padding: 2px;
+    margin: 2px;
+}
+.item_all{
+
+    padding-top: 5px;
+}
+.photo_taille{
+    height: 200px;
+}
+.card_taille{
+height: 380px;    
+}
+.button_position{
+margin-top: 6px;
+    padding-top: 4px;}
